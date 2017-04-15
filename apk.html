@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>APP下载页</title>
+	<style type="text/css" media="screen">
+		/* reset */
+		body{
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			position: relative;
+		}
+		html{
+			height: 100%;
+			width: 100%;
+		}
+		h1,h2,h3,h4,h5,h6{
+			padding: 0;
+			margin: 0;
+			font-size:100%; 
+		}
+		/* layouts */
+		#header{
+			width: 100%;
+			height: 35px;
+			line-height: 35px;
+			background: #1B92F6;
+			color: #ffffff;
+			text-align: center;
+		}
+		#footer{
+			width: 100%;
+			height: 20px;
+			line-height: 20px;
+			position: fixed;
+			bottom: 0;
+			background: #6A6A6A;
+			color: #ffffff;
+		}
+		#footer h6{
+			font-size: 12px;
+			font-weight: normal;
+			text-align: right;
+			margin-right: 10px;
+		}
+		.container{
+			width: 100%;
+			height: auto;
+		}
+		.imgContent{
+			width: 100%;
+			text-align: center;
+		}
+		.imgContent img{
+			width: 100px;
+			height: 100px;
+			margin: 50px 0 10px;
+			border-radius: 5px;
+		}
+		.link{
+			width: 100%;
+			height: auto;
+			margin-top: 50px;
+			text-align: center;
+		}
+		.link button{
+			border: none;
+			width: 100px;
+			height: 25px;
+			line-height: 25px;
+			border-radius: 4px;
+			background: #FF4141;
+			color: #ffffff;
+			outline: none;
+		}
+		.link button:active{
+			background: #F00B0B;
+			outline: none;
+		}
+		.msg{
+			width: 100%;
+			margin-top: 50px;
+			text-align: center;
+		}
+		.msg p{
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<header id="header">
+		<h1>APP下载</h1>
+	</header>
+	<!-- /header -->
+	<div class="container">
+		<div class="imgContent">
+			<img src="http://upload-images.jianshu.io/upload_images/1747023-009f64ab0553af89.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="APK图标">
+			<h4>XXXX.APK </h4>
+		</div>
+		<div class="link">
+			<button type="button" id="copy" data-clipboard-target="#txt">复制链接</button>
+		</div>
+		<div class="msg">
+			<p id="txt">[&nbsp&nbsphttp://www.baidu.com&nbsp&nbsp]</p>
+			<p>这是一条神奇的文字，没有任何意义</p>
+		</div>
+	</div>
+	<footer id="footer">
+		<h6>@来自于大洋彼岸的页脚版权</h6>
+	</footer>
+	<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdn.bootcss.com/clipboard.js/1.6.1/clipboard.min.js" type="text/javascript"></script>
+	<script>
+		//init
+		var clipboard = new Clipboard('#copy');
+		//优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
+		clipboard.on('success', function(e) {
+		    alert('复制成功!')
+		    e.clearSelection();
+		});
+		clipboard.on('error', function(e) {
+		    alert('请选择“拷贝”进行复制!')
+		});
+	</script>
+</body>
+</html>
